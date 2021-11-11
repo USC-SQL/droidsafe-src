@@ -1,0 +1,8 @@
+version: "2"
+services:
+  "droidsafe":
+    build: .
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    volumes:
+      - ./:/usr/local/DroidSafe

@@ -1,3 +1,14 @@
+How to run
+==========
+
+You can install the container by first running:
+`docker-compose build`, then
+`docker-compose run droidsafe`. After that, you can cd to your app's directory (e.g., ./android-apps/examples/IntentSink1) and run:
+`make specdump-apk`
+Results will be under `./android-apps/examples/IntentSink1/droidsafe-gen/info-flow-results.txt`.
+
+To run the analysis in your own app, put your apk under a folder under ./android-apps/examples/ alongside the modified Makefile (similar to the one in IntentSink1/).
+
 Overview
 ========
 

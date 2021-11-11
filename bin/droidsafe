@@ -34,9 +34,10 @@ MAIN_CLASS = "droidsafe.main.Main"
 DROIDSAFE_SRC_HOME = os.environ['DROIDSAFE_SRC_HOME'] + os.sep
 
 SERVER_MEMORY="64"
-DESKTOP_MEMORY="16"
+DESKTOP_MEMORY="6"#"16"# we don't have the same computing capabilities as MIT
 
 def run_droidsafe(args):
+    print("[DEBUG] start of run_droidsafe()!")
     libs = DROIDSAFE_SRC_HOME + "bin" + os.sep
     java_command = []
     java_command.append("java")
@@ -89,7 +90,7 @@ def run_droidsafe(args):
     for arg in args[1:]:
         java_command.append(arg)
 
-    #print(command)
+    print("[DEBUG] Running command:", java_command)
     return subprocess.call(java_command)
 
 

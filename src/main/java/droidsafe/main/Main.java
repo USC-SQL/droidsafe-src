@@ -239,11 +239,14 @@ public class Main {
         //dumpConcreteMethods();
     	
     	//API.v().dumpSpecSourcesAndSinks();
+	driverMsg("DroidsafeExecutionStatus: before if statement");
 
         if (Config.v().infoFlowTrackAll) {
+	    driverMsg("DroidsafeExecutionStatus: within if statement");
             monitor.worked(1);
             AutomatedSourceTagging.run();
             if (monitor.isCanceled()) {
+	        driverMsg("DroidsafeExecutionStatus: about to return with CANCEL_STATUS");
                 return DroidsafeExecutionStatus.CANCEL_STATUS;
             }
         }

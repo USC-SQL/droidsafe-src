@@ -26,8 +26,8 @@ DBDIR	  := droidsafe-gen
 ASM4	  := $(ssj)/trunk/Instrumentation/lib/asm-debug-all-4.0.jar
 VERIFY	  := $(ssj)/trunk/Instrumentation/src/pac/agent/verifier/verifier.jar
 GOOGLE	  := $(DROIDSAFE_SRC_HOME)/lib/guava-r09.jar
-JAVA_SRC  := $(shell find src -name '*.java')
-XML_SRC   := $(shell find res -name '*.xml') $(wildcard *.xml)
+JAVA_SRC  := $(shell find /usr/local/DroidSafe/src -name '*.java')
+XML_SRC   := $(shell find res/ -name '*.xml') $(wildcard *.xml) # TODO: fix hardcoded path
 SRC       := $(JAVA_SRC) $(XML_SRC)
 DS_SRC    := $(shell find $(DROIDSAFE_SRC_HOME)/src -name '*.java')
 API_MODEL_SRC		 := $(shell find $(DROIDSAFE_SRC_HOME)/modeling/api -name '*.java')
@@ -192,6 +192,7 @@ libs/droidcalls.jar : $(DROIDSAFE_SRC_HOME)/android-lib/droidcalls.jar
 	cp -f $(DROIDSAFE_SRC_HOME)/android-lib/droidcalls.jar libs
 
 $(APK) : $(SRC) build.xml
+	echo "WARNING: fix path for XML_SRC in Makefile.common"
 	printenv ANDROID_SDK_HOME
 	ant debug
 
